@@ -22,7 +22,7 @@
   <dependencies>
     <dependency>
       <groupId>org.promote</groupId>
-      <artifactId>promote-parent</artifactId>
+      <artifactId>promote-service</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 
