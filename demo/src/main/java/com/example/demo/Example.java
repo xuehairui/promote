@@ -1,15 +1,17 @@
 package com.example.demo;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@EnableAutoConfiguration
+@RequestMapping("/")
 public class Example {
 
-    @RequestMapping("/")
-    String home() {
-        return "Hello";
+    @RequestMapping("hello")
+    ModelAndView home(ModelAndView mv) {
+        mv.setViewName("/hello");
+        mv.addObject("name", "欢迎使用thymeleaf");
+        return mv;
     }
 }
