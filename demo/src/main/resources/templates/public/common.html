@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common_js(scripts)">
+    <script type="text/javascript" th:src="@{/js/public/bootstrap.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/public/vue.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/public/jquery-3.3.1.js}"></script>
+    <!--Per-page placeholder for additional js-->
+    <th:block th:replace="${scripts}"/>
+</div>
+</html>
