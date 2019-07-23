@@ -19,12 +19,24 @@ public class User implements Serializable {
     /**userName*/
     private String userName;
 
+    /**
+     * credits
+     */
     private int credits;
 
+    /**
+     * password
+     */
     private String password;
 
+    /**
+     * lastVisitDate
+     */
     private Date lastVisitDate;
 
+    /**
+     * lastIp
+     */
     private String lastIp;
 
     public int getUserId() {
