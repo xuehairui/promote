@@ -6,9 +6,17 @@
 </head>
 <body>
 <div th:replace="public/common::common_js(~{::script})">
-    <script type="text/javascript" th:src="@{/js/hello.js}"></script>
+    <script type="text/javascript" th:src="@{/js/user/user.js}"></script>
 </div>
 <p>用户信息</p>
-<button type="button" class="btn btn-primary">submit</button>
+<div>
+    <form>
+        <label>username</label><input id="username">
+        <br>
+        <label>password</label><input id="password" type="password">
+    </form>
+</div>
+<button id="addBtn" type="button" class="btn btn-primary" onclick="addUser()">addUser</button>
+<button id="listBtn" type="button" class="btn btn-primary" onclick="listUser()">listUser</button>
 </body>
 </html>

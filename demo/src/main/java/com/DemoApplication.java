@@ -1,8 +1,9 @@
-package com.example.demo;
+package com;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * <Description> <br>
@@ -13,7 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0<br>
  */
 @SpringBootApplication
-@MapperScan("com.example.mapper")
+@EnableScheduling
+@MapperScan("com.example.dao")
 public class DemoApplication {
 
     public static void main(String[] args) {

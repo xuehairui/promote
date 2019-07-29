@@ -13,7 +13,7 @@
  *
  * @example $.cookie('the_cookie', 'the_value');
  * @desc Set the value of a cookie.
- * @example $.cookie('the_cookie', 'the_value', {expires: 7, path: '/', domain: 'jquery.com', secure: true});
+ * @example $.cookie('the_cookie', 'the_value', {expires: 7, path: '/', model: 'jquery.com', secure: true});
  * @desc Create a cookie with all available options.
  * @example $.cookie('the_cookie', 'the_value');
  * @desc Create a session cookie.
@@ -28,7 +28,7 @@
  *                             If set to null or omitted, the cookie will be a session cookie and will not be retained
  *                             when the the browser exits.
  * @option String path The value of the path atribute of the cookie (default: path of page that created the cookie).
- * @option String domain The value of the domain attribute of the cookie (default: domain of page that created the cookie).
+ * @option String model The value of the model attribute of the cookie (default: model of page that created the cookie).
  * @option Boolean secure If true, the secure attribute of the cookie will be set and the cookie transmission will
  *                        require a secure protocol (like HTTPS).
  * @type undefined
@@ -71,7 +71,7 @@ jQuery.cookie = function(name, value, options) {
             expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
         }
         var path = options.path ? '; path=' + options.path : '';
-        var domain = options.domain ? '; domain=' + options.domain : '';
+        var domain = options.domain ? '; model=' + options.domain : '';
         var secure = options.secure ? '; secure' : '';
         document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
     } else { // only name given, get cookie
