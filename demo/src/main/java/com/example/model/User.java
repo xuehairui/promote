@@ -11,7 +11,13 @@ import java.util.Date;
  * @since 1.0<br>
  */
 public class User {
-    
+    public User() {
+    }
+
+    public User(String userName) {
+        this.userName = userName;
+    }
+
     private int userId;
     
     private String userName;
