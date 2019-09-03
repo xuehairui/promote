@@ -2,43 +2,42 @@ package com.example.controller;
 
 import com.example.model.User;
 import com.example.service.UserService;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
 import java.util.List;
 
+@Api("查询用户")
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("user")
+    @RequestMapping("/init")
     public ModelAndView user(ModelAndView mv) {
         mv.setViewName("/user/user");
         return mv;
     }
 
-    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
-    public String addUser(){
-        User user = new User();
-        user.setUserName("李四");
-        user.setPassword("11");
-        user.setCredits(1);
-        user.setLastVisitDate(new Date());
-        user.setLastIp("127.0.0.1");
+    @ApiOperation("新增用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userName", value = "用户名", required = true)
+    })
+    @PostMapping(value="/add")
+    //@RequestMapping(value = "add", method = RequestMethod.POST)
+    public String addUser(User user){
         return "addUser"+userService.addUser(user);
     }
 
-    @RequestMapping(value = "/user/list", method = RequestMethod.POST)
+    @ApiOperation("列出所有用户")
+    @GetMapping(value = "/list")
     public List<User> listUser() {
         return userService.getAll();
     }

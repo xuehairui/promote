@@ -1,5 +1,11 @@
 package com.example.model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /** 
@@ -10,6 +16,8 @@ import java.util.Date;
  * @CreateDate 2019/7/9 15:15 <br>
  * @since 1.0<br>
  */
+@Entity
+@Table(name = "user")
 public class User {
     public User() {
     }
@@ -18,16 +26,22 @@ public class User {
         this.userName = userName;
     }
 
+    @Id
+    @GeneratedValue
+    @Field("user_id")
     private int userId;
-    
+
+    @Field("user_name")
     private String userName;
-    
+
     private int credits;
     
     private String password;
-    
+
+    @Field("last_visit_date")
     private Date lastVisitDate;
-    
+
+    @Field("last_ip")
     private String lastIp;
 
     public int getUserId() {
