@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/init")
+    @RequestMapping(value = "/init")
     public ModelAndView user(ModelAndView mv) {
         mv.setViewName("/user/user");
         return mv;

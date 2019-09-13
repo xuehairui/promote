@@ -22,4 +22,9 @@ public class LoginController {
         return mv;
     }
 
+    @RequestMapping("/index")
+    public ModelAndView index(ModelAndView mv) {
+        mv.setViewName("/index");
+        return mv;
+    }
 }
